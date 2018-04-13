@@ -1,0 +1,46 @@
+{
+    "name": "mongogui",
+    "version": "2018.04.12",
+    "description": "A minimal Electron application",
+    "main": "app/main.js",
+    "scripts": {
+        "start": "electron .",
+        "packager": "electron-packager . appName --platform=win32 --arch=x64 --electron-version=1.8.2 --out=out --overwrite",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder"
+    },
+    "repository": "https://github.com/electron/electron-quick-start",
+    "keywords": [
+        "Electron",
+        "quick",
+        "start",
+        "tutorial",
+        "demo"
+    ],
+    "build": {
+        "appId": "com.yq.mongogui",
+        "copyright": "杨庆",
+        "productName": "MongoGUI界面管理器",
+        "dmg": {
+            "background": "res/background.png",
+            "window": {
+                "x": 100,
+                "y": 100,
+                "width": 500,
+                "height": 300
+            }
+        },
+        "win": {
+            "icon": "res/icon.ico"
+        }
+    },
+    "author": "杨庆",
+    "license": "CC0-1.0",
+    "devDependencies": {
+        "electron": "~1.8.2",
+        "electron-packager": "^10.1.0"
+    },
+    "dependencies": {
+        "getmac": "^1.4.1"
+    }
+}
