@@ -129,6 +129,27 @@ function showMsg(msg) {
         position: "bottomRight"
     });
 }
+function transformObj(obj) {
+    var arr = [];
+    for (var item in obj) {
+        arr[item]=(obj[item]);
+    }
+    return arr;
+}
+function transformArr(arr) {
+    var json=[];
+    arr.forEach(function(item){
+        var temp={};
+        console.log(item);
+       alert(123);
+
+        item.forEach(function(value,index){
+            temp[value]=value;
+        });
+        json.push(temp);
+    })
+    return json;
+}
 //提示信息显示
 function showAlert(msg) {
     $.messager.alert('警告', msg);
@@ -239,7 +260,7 @@ function disableForm(formId, isDisabled) {
     });
 }
 /**
- * @author 孙宇
+ * @author 
  * 
  * @requires jQuery,EasyUI
  * 
@@ -278,7 +299,7 @@ $.fn.combobox.defaults.onLoadError = easyuiErrorFunction;
 $.fn.form.defaults.onLoadError = easyuiErrorFunction;
  
 /**
- * @author 孙宇
+ * @author 
  * 
  * @requires jQuery,EasyUI
  * 
@@ -455,7 +476,7 @@ mergeCellsByField = function(tableID, colList) {
     }
 }
 /**
- * author ____′↘夏悸
+ * author
  * create date 2012-11-5
  *	表格数据自动合并
  **/
@@ -656,7 +677,7 @@ serializeObject = function(form) {
 };
 
 /**
- * @author 孙宇
+ * @author
  * 
  * 增加formatString功能
  * 
@@ -672,7 +693,7 @@ formatString = function(str) {
 };
  */
 /**
- * @author 孙宇
+ * @author 
  * 
  * 接收一个以逗号分割的字符串，返回List，list里每一项都是一个字符串
  * 
@@ -692,7 +713,7 @@ stringToList = function(value) {
 };
 
 /**
- * @author 孙宇
+ * @author
  * 
  * @requires jQuery
  * 

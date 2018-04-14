@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>项目管理系统</title>
+    <title>数据库管理GUI</title>
     <meta http-equiv="X-UA-Compatible" content="IE=9" />
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta http-equiv="Cache-Control" content="max-age=135000" />
@@ -26,16 +26,19 @@
     <script src="public/js/jeasyui-extensions/jquery-easyui-my97/jquery.my97.js" type="text/javascript"></script>
     <script src="public/js/syUtil.js" type="text/javascript"></script>
     <script type="text/javascript">
-        var APP = '__APP__/Admin';
-        var TMPL = '__ADMINTMPL__';
-        var PUBLIC = 'public';
-        var ROOT = '__ROOT__';
-        require('./renderer.js')
+        var dbmysql = require('./utils/mysqleasy.js');
+        var type = '';
+        var address = '';
+        var user = '';
+        var pass = '';
+        var port = '';
+        var database = '';
+        // require('./renderer.js')
     </script>
 </head>
 <body id="indexlayout" class="easyui-layout">
-<div data-options="region:'north',href:'view/Layout/north.html',border : false" id="top_image" style="height:65px;overflow:hidden;"></div>
-<div id="layoutMenu" data-options="region:'west',title:'主菜单',href:'view/Layout/west.html'" style="width:210px;overflow: hidden;"></div>
+<div data-options="region:'north',href:'view/Layout/north.html',border : false" id="top_image" style="height:35px;overflow:hidden;"></div>
+<div id="layoutMenu" data-options="split:true,region:'west',title:'主菜单',href:'view/Layout/west.html'" style="width:210px;overflow: hidden;"></div>
 <div data-options="region:'center',border:false,title:'',href:'view/Layout/center.html'" style="overflow: hidden;"></div>
 <!--<div data-options="region:'east',title:'右边显示',split:true" style="width: 200px;overflow: hidden;">
 		<jsp:include page="layout/east.jsp"></jsp:include>

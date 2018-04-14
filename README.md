@@ -1,5 +1,5 @@
 # Electron Mongo GUI
-自己用Electron开发的一个mongo数据库的界面管理软件
+自己用Electron开发的一个数据库的界面管理软件  现在暂时支持mysql的查询库  查询表  后期加入 对数据库还有表的操作  再后期希望加入对mongo数据库的支持，和其他数据库的支持
 
 
 npm install electron-builder -g  //安装打包环境

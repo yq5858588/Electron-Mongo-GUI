@@ -49,7 +49,7 @@ function createWindow() {
         }
     });*/
     mainWindow.setMenu(null);
-    // mainWindow.maximize();
+    mainWindow.maximize();
     mainWindow.on('close', event => {
         let num = dialog.showMessageBox({
             title: '确认退出系统吗？',
