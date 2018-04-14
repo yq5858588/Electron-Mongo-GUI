@@ -1,0 +1,277 @@
+<style>
+    .con {
+        background-color:#e0ecff;
+        /*width:100%;*/
+        margin:0 auto;
+        width:100%;
+    }
+    .con .item {
+        border-radius:10px;
+        padding:5px;
+        margin:10px auto;
+        width:95%;
+    }
+    .con .item .title {
+        font-size:18px;
+        font-weight:bold;
+        margin:0px;
+    }
+    .con .item .body {
+        margin:5px;
+        display:flex;
+        align-items: flex-start;
+        justify-content:center;
+    }
+    .con .item .body table{
+        width:45%;
+        margin:5px;
+        text-align:center;
+        background-color1:#0d8ddb;
+        border:0px solid red;
+    }
+    .con .item .body table .title{
+        font-size:17px;
+        font-weight:bold;
+    }
+    .con .item .body table tbody tr{
+        margin-top:10px;
+    }
+    .con .item .body table .workitem{
+        text-decoration:underline;
+        padding-left:10px;
+    }
+</style>
+<script type="text/javascript" charset="utf-8">
+    $(function(){
+        $('#layout_portal_portal1').portal({
+            border: false,
+            fit: true,
+            onStateChange: function(){
+                $.cookie('portal-state',getPortalState(),{
+                    expires: 7
+                });
+            }
+        });
+        $('#layout_portal_cehua_dataGrid').datagrid({
+            //url : APP+'/Layout/getProjectCehua',
+            data: {$projectlist_cehua},
+            idField: 'id',
+            fit: false,striped: true,
+            fitColumns: false,
+            border: false,
+            singleSelect: true,
+            frozenColumns: [[{
+                title: '编号',
+                field: 'id',
+                width: 150,
+                hidden: true
+            },{
+                field: 'title',
+                title: '项目名称',
+                width: 150
+            }]],
+            columns: [[{
+                title : '本月',
+                colspan : <?php echo count($userlist_cehua);?>
+            }, {
+                title : '上月',
+                colspan : <?php echo count($userlist_cehua);?>
+            }],[{
+                field: 'dnum',
+                title: '部门代码',hidden:true,
+                width: 100
+            }<volist name="userlist_cehua" id="data">,{
+                field: 'benyue_{$data.userid}',
+                title: '{$data.username}'+"(得分)",
+                width: 80
+            }</volist><volist name="userlist_cehua" id="data">,{
+                field: 'shangyue_{$data.userid}',
+                title: '{$data.username}'+"(得分)",
+                width: 80
+            }</volist>]]
+        });
+        $('#layout_portal_meigong_dataGrid').datagrid({
+            //url : APP+'/Layout/getProjectCehua',
+            data: {$projectlist_meigong},
+            idField: 'id',
+            fit: false,striped: true,
+            fitColumns: false,
+            border: false,
+            singleSelect: true,
+            frozenColumns: [[{
+                title: '编号',
+                field: 'id',
+                width: 150,
+                hidden: true
+            },{
+                field: 'title',
+                title: '项目名称',
+                width: 150
+            }]],
+            columns: [[{
+                title : '本月',
+                colspan :<?php echo count($userlist_meigong);?>
+            }, {
+                title : '上月',
+                colspan : <?php echo count($userlist_meigong);?>
+            }],[{
+                field: 'dnum',
+                title: '部门代码',hidden:true,
+                width: 100
+            }<volist name="userlist_meigong" id="data">,{
+                field: 'benyue_{$data.userid}',
+                title: '{$data.username}'+"(得分)",
+                width: 80
+            }</volist><volist name="userlist_meigong" id="data">,{
+                field: 'shangyue_{$data.userid}',
+                title: '{$data.username}'+"(得分)",
+                width: 80
+            }</volist>]]
+        });
+    });
+</script>
+<div class="easyui-tabs" data-options="fit:true,tabPosition:'left',tabHeight:'40',headerWidth:160">
+    <!--div title="图表" data-options="fit:true,border:false,href:'__APP__/Pic/echarts'">
+    </div-->
+    <div title="我的Daily List" data-options="closable:false,selected:true" style="background-color:#e0ecff;">
+        <div class="con">
+            <fieldset class="item">
+                <legend class="title">今日任务</legend>
+                <div class="body">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td colspan="3" class="title">上班</td>
+                        </tr>
+                        <volist name="daylistjinrishang" id="data">
+                        <tr>
+                            <td width="100" class="workitem" align="right">{$data.addtime}:</td>
+                            <td class="workitem" align="left">{$data.content}</td>
+                            <td width="100" class="workitem">{$data.status}</td>
+                        </tr>
+                        </volist>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td colspan="3" class="title">下班</td>
+                        </tr>
+                        <volist name="daylistjinrixia" id="data">
+                            <tr>
+                                <td width="100" class="workitem" align="right">{$data.addtime}:</td>
+                                <td class="workitem" align="left">{$data.content}</td>
+                                <td width="100" class="workitem">{$data.status}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+            </fieldset>
+            <fieldset class="item">
+                <legend class="title">明日任务</legend>
+                <div class="body">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td colspan="3" class="title">上班</td>
+                        </tr>
+                        <volist name="daylistmingrishang" id="data">
+                            <tr>
+                                <td width="100" class="workitem" align="right">{$data.addtime}:</td>
+                                <td class="workitem" align="left">{$data.content}</td>
+                                <td width="100" class="workitem">{$data.status}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td colspan="3" class="title">下班</td>
+                        </tr>
+                        <volist name="daylistmingrixia" id="data">
+                            <tr>
+                                <td width="100" class="workitem" align="right">{$data.addtime}:</td>
+                                <td class="workitem" align="left">{$data.content}</td>
+                                <td width="100" class="workitem">{$data.status}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+            </fieldset>
+            <fieldset class="item">
+                <legend class="title">昨日任务</legend>
+                <div class="body">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td colspan="3" class="title">上班</td>
+                        </tr>
+                        <volist name="daylistzuorishang" id="data">
+                            <tr>
+                                <td width="100" class="workitem" align="right">{$data.addtime}:</td>
+                                <td class="workitem" align="left">{$data.content}</td>
+                                <td width="100" class="workitem">{$data.status}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td colspan="3" class="title">下班</td>
+                        </tr>
+                        <volist name="daylistzuorixia" id="data">
+                            <tr>
+                                <td width="100" class="workitem" align="right">{$data.addtime}:</td>
+                                <td class="workitem" align="left">{$data.content}</td>
+                                <td width="100" class="workitem">{$data.status}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+            </fieldset>
+            <fieldset class="item">
+                <legend class="title">近七天任务</legend>
+                <div class="body">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td colspan="3" class="title">上班</td>
+                        </tr>
+                        <volist name="daylistqishang" id="data">
+                            <tr>
+                                <td width="100" class="workitem" align="right">{$data.addtime}:</td>
+                                <td class="workitem" align="left">{$data.content}</td>
+                                <td width="100" class="workitem">{$data.status}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td colspan="3" class="title">下班</td>
+                        </tr>
+                        <volist name="daylistqixia" id="data">
+                            <tr>
+                                <td width="100" class="workitem" align="right">{$data.addtime}:</td>
+                                <td class="workitem" align="left">{$data.content}</td>
+                                <td width="100" class="workitem">{$data.status}</td>
+                            </tr>
+                        </volist>
+                    </table>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div title="策划任务统计表" data-options="closable:false,selected:false" style="background-color:#e0ecff;">
+        <div class="con">
+            <table id="layout_portal_cehua_dataGrid">
+            </table>
+            <!--<div class="item" onmouseover="this.style.backgroundColor='#005cb3'" onmouseout="this.style.backgroundColor='#00a0ea'">-->
+                <!--<div class="title">西安九龙医院</div>-->
+                <!--<div>策划任务本月：{$data.cehuabenyue}</div>-->
+                <!--<div>策划任务上月：{$data.cehuashangyue}</div>-->
+                <!--<div>美工任务本月：{$data.meigongbenyue}</div>-->
+                <!--<div>美工任务上月：{$data.meigongshangyue}</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div title="美工任务统计表" data-options="closable:false,selected:true" style="background-color:#e0ecff;">
+        <div class="con">
+            <table id="layout_portal_meigong_dataGrid"></table>
+        </div>
+    </div>
+    <div title="竞价任务统计表" style="background-color:#e0ecff;"></div>
+    <div title="人事行政任务统计表" data-options="closable:false" style="background-color:#e0ecff;"></div>
+    <div title="程序任务统计表" data-options="closable:false" style="background-color:#e0ecff;"></div>
+</div>

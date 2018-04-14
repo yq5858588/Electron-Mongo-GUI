@@ -40,7 +40,7 @@ function createWindow() {
 
     // mainWindow.setTitle(macAddress);
     // Open the DevTools.
-    // mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
     //注册打开控制台的快捷键
     /*globalShortcut.register('ctrl+shift+alt+e', function () {
         let win = BrowserWindow.getFocusedWindow();
