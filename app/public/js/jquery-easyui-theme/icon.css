@@ -1,0 +1,163 @@
+ .combo-clear {  
+   background-color: #E0ECFF;  
+   width: 18px;  
+   height: 20px;  
+   overflow: hidden;  
+   display: inline-block;  
+   vertical-align: top;  
+   cursor: pointer;  
+   opacity: 0.6;  
+   filter: alpha(opacity=60);  
+   background: url('icons/quxiao.png') no-repeat center center;  
+ }  
+ .combo-clear-hover {  
+   opacity: 1.0;  
+   filter: alpha(opacity=100);  
+   background-color: #eaf2ff;  
+ }
+.icon-jiancha{
+	background:url('icons/jiancha.png') no-repeat center center;padding-left: 15px;
+}.icon-zhiliao{
+	background:url('icons/zhiliao.png') no-repeat center center;padding-left: 15px;
+}.icon-shoushu{
+	background:url('icons/shoushu.png') no-repeat center center;padding-left: 15px;
+}.icon-shuye{
+	background:url('icons/shuye.png') no-repeat center center;padding-left: 15px;
+}.icon-bchao{
+	background:url('icons/bchao.png') no-repeat center center;padding-left: 15px;
+}
+.icon-chajian{
+	background:url('icons/chajian.png') no-repeat center center;padding-left: 15px;
+}
+.icon-mianban{
+	background:url('icons/mianban.png') no-repeat center center;padding-left: 15px;
+}
+.icon-zhuxiao{
+	background:url('icons/zhuxiao.png') no-repeat center center;padding-left: 15px;
+}
+.icon-chakan{
+	background:url('icons/chakan.png') no-repeat center center;padding-left: 15px;
+}
+.icon-close{
+	background:url('icons/close.png') no-repeat center center;padding-left: 15px;
+}
+.icon-duanxin{
+	background:url('icons/duanxin.png') no-repeat center center;padding-left: 15px;
+}
+.icon-duihuabeizhu{
+	background:url('icons/duihuabeizhu.png') no-repeat center center;padding-left: 15px;
+}
+.icon-xiaofeizhiliao{
+	background:url('icons/xiaofeizhiliao.png') no-repeat center center;padding-left: 15px;
+}
+.icon-huifang{
+	background:url('icons/huifang.png') no-repeat center center;padding-left: 15px;
+}
+.icon-jinrihuifang{
+	background:url('icons/jinrihuifang.png') no-repeat center center;padding-left: 15px;
+}
+.icon-weihuifang{
+	background:url('icons/weihuifang.png') no-repeat center center;padding-left: 15px;
+}
+.icon-fuzhen{
+	background:url('icons/fuzhen.png') no-repeat center center;padding-left: 15px;
+}
+.icon-jinrifuzhen{
+	background:url('icons/jinrifuzhen.png') no-repeat center center;padding-left: 15px;
+}
+.icon-weifuzhen{
+	background:url('icons/weifuzhen.png') no-repeat center center;padding-left: 15px;
+}
+.icon-goudaoyuan{
+	background:url('icons/goudaoyuan.png') no-repeat center center;padding-left: 15px;
+}
+.icon-yuyue{
+	background:url('icons/yuyue.png') no-repeat center center;padding-left: 15px;
+}
+.icon-blank{
+	background:url('icons/blank.gif') no-repeat center center;padding-left: 15px;
+}
+.icon-add{
+	background:url('icons/edit_add.png') no-repeat center center;padding-left: 15px;
+}
+.icon-edit{
+	background:url('icons/pencil.png') no-repeat center center;padding-left: 15px;
+}
+.icon-remove{
+	background:url('icons/edit_remove.png') no-repeat center center;padding-left: 15px;
+}
+.icon-delete{
+	background:url('icons/delete.png') no-repeat center center;padding-left: 15px;
+}
+.icon-save{
+	background:url('icons/filesave.png') no-repeat center center;padding-left: 15px;
+}
+.icon-cut{
+	background:url('icons/cut.png') no-repeat center center;padding-left: 15px;
+}
+.icon-ok{
+	background:url('icons/ok.png') no-repeat center center;padding-left: 15px;
+}
+.icon-no{
+	background:url('icons/no.png') no-repeat center center;padding-left: 15px;
+}
+.icon-cancel{
+	background:url('icons/cancel.png') no-repeat center center;padding-left: 15px;
+}
+.icon-reload{
+	background:url('icons/reload.png') no-repeat center center;padding-left: 15px;padding-left: 15px;
+}
+.icon-search{
+	background:url('icons/search.png') no-repeat center center;padding-left: 15px;
+}
+.icon-print{
+	background:url('icons/print.png') no-repeat center center;padding-left: 15px;
+}
+.icon-help{
+	background:url('icons/help.png') no-repeat center center;padding-left: 15px;
+}
+.icon-undo{
+	background:url('icons/undo.png') no-repeat center center;padding-left: 15px;
+}
+.icon-redo{
+	background:url('icons/redo.png') no-repeat center center;padding-left: 15px;
+}
+.icon-back{
+	background:url('icons/back.png') no-repeat center center;padding-left: 15px;
+}
+.icon-sum{
+	background:url('icons/sum.png') no-repeat center center;padding-left: 15px;
+}
+.icon-tip{
+	background:url('icons/tip.png') no-repeat center center;padding-left: 0px;
+}
+.icon-filter{
+	background:url('icons/filter.png') no-repeat center center;padding-left: 15px;
+}
+
+
+.icon-mini-add{
+	background:url('icons/mini_add.png') no-repeat center center;
+}
+.icon-mini-edit{
+	background:url('icons/mini_edit.png') no-repeat center center;
+}
+.icon-mini-refresh{
+	background:url('icons/mini_refresh.png') no-repeat center center;
+}
+
+.icon-large-picture{
+	background:url('icons/large_picture.png') no-repeat center center;
+}
+.icon-large-clipart{
+	background:url('icons/large_clipart.png') no-repeat center center;
+}
+.icon-large-shapes{
+	background:url('icons/large_shapes.png') no-repeat center center;
+}
+.icon-large-smartart{
+	background:url('icons/large_smartart.png') no-repeat center center;
+}
+.icon-large-chart{
+	background:url('icons/large_chart.png') no-repeat center center;
+}

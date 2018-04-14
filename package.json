@@ -38,9 +38,10 @@
     "license": "CC0-1.0",
     "devDependencies": {
         "electron": "~1.8.2",
-        "electron-packager": "^10.1.0"
+        "mongodb": "^3.0.6"
     },
     "dependencies": {
+        "ejs": "^2.5.8",
         "getmac": "^1.4.1"
     }
 }
