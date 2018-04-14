@@ -5,6 +5,7 @@
 再后期希望加入对mongo数据库的支持，和其他数据库的支持
 再此我也希望各位大牛能加入进来，为开源做点事情，把软件的界面以及对其他数据库的支持补充完善
 项目码云地址为：https://gitee.com/yq5858588/Electron-Mongo-GUI
+软件安装包下载地址：https://pan.baidu.com/s/1k6aBR2WPtwFLq3LUwR7SwQ
 
 
 npm install electron-builder -g  //安装打包环境
