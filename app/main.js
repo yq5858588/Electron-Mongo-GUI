@@ -22,25 +22,15 @@ function createWindow() {
         height: 600
     })
 
-    //获取机器mac地址
-    getmac.getMac(function(err, macAddress) {
-        if (err) throw err;
-        var macAddress = macAddress; //获取mac地址
-        //console.log(macAddress);
-        // mainWindow.loadURL("http://weixin.xajlnkyjy.com/tp323/renshi.php", {
-        //     userAgent: macAddress,
-        //     host: macAddress,
-        // });
-        mainWindow.loadURL(url.format({
-            pathname: path.join(__dirname, 'index.html'),
-            protocol: 'file:',
-            slashes: true
-        }))
-    });
+    mainWindow.loadURL(url.format({
+        pathname: path.join(__dirname, 'index.html'),
+        protocol: 'file:',
+        slashes: true
+    }))
 
     // mainWindow.setTitle(macAddress);
     // Open the DevTools.
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
     //注册打开控制台的快捷键
     /*globalShortcut.register('ctrl+shift+alt+e', function () {
         let win = BrowserWindow.getFocusedWindow();
@@ -49,7 +39,7 @@ function createWindow() {
         }
     });*/
     mainWindow.setMenu(null);
-    mainWindow.maximize();
+    // mainWindow.maximize();
     mainWindow.on('close', event => {
         let num = dialog.showMessageBox({
             title: '确认退出系统吗？',
