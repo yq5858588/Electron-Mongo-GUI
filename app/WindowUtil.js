@@ -112,6 +112,5 @@ class WindowUtil {
         }
     }
 
-
 }
 module.exports = WindowUtil;

@@ -1,5 +1,8 @@
 const electron = require('electron');
 const { dialog } = require('electron');
+
+const ipc = electron.ipcMain;
+
 // import { dialog }  from 'electron';
 const getmac = require('getmac');
 // Module to control application life.
@@ -17,9 +20,11 @@ let mainWindow;
 function createWindow() {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 900,
+        transparent: true,
+        frame: false,
+        width: 1200,
         fullscreenable: true,
-        height: 600
+        height:800
     })
 
     mainWindow.loadURL(url.format({
@@ -78,6 +83,20 @@ app.on('activate', function() {
         createWindow()
     }
 })
-
+//登录窗口最小化
+ipc.on('window-min', function() {
+    mainWindow.minimize();
+})
+//登录窗口最大化
+ipc.on('window-max', function() {
+    if (mainWindow.isMaximized()) {
+        mainWindow.restore();
+    } else {
+        mainWindow.maximize();
+    }
+})
+ipc.on('window-close', function() {
+    mainWindow.close();
+})
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.

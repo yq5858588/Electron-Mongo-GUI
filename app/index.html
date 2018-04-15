@@ -33,16 +33,16 @@
         var pass = '';
         var port = '';
         var database = '';
-        // require('./renderer.js')
+        require('./renderer.js');
     </script>
 </head>
-<body id="indexlayout" class="easyui-layout">
-<div data-options="region:'north',href:'view/Layout/north.html',border : false" id="top_image" style="height:35px;overflow:hidden;"></div>
+<body id="indexlayout" class="easyui-layout" style="-webkit-app-region: no-drag">
+<div data-options="region:'north',href:'view/Layout/north.html',border:true" id="top_image" style="height:35px;overflow:hidden;-webkit-app-region:drag"></div>
 <div id="layoutMenu" data-options="split:true,region:'west',title:'主菜单',href:'view/Layout/west.html'" style="width:210px;overflow: hidden;"></div>
-<div data-options="region:'center',border:false,title:'',href:'view/Layout/center.html'" style="overflow: hidden;"></div>
+<div data-options="region:'center',border:true,title:'',href:'view/Layout/center.html'" style="overflow: hidden;"></div>
 <!--<div data-options="region:'east',title:'右边显示',split:true" style="width: 200px;overflow: hidden;">
 		<jsp:include page="layout/east.jsp"></jsp:include>
-	</div>
-	<div data-options="region:'south',border:false,href:'view/Layout/south.html'" style="height: 27px;overflow: hidden;"></div>-->
+	</div>-->
+<div data-options="region:'south',border:true,href:'view/Layout/south.html'" style="height: 27px;overflow: hidden;-webkit-app-region:drag"></div>
 </body>
 </html>
