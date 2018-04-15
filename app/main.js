@@ -1,5 +1,6 @@
 const electron = require('electron');
 const { dialog } = require('electron');
+const { shell } = require('electron');
 
 const ipc = electron.ipcMain;
 
@@ -8,25 +9,30 @@ const globalShortcut = electron.globalShortcut
 // import { dialog }  from 'electron';
 const getmac = require('getmac');
 // Module to control application life.
-const app = electron.app
+const app = electron.app;
+const Menu = electron.Menu;
+const Tray = electron.Tray;
+
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
-
+let appIcon = null;
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
 function createWindow() {
+
     // Create the browser window.
     mainWindow = new BrowserWindow({
         transparent: true,
         frame: false,
         width: 1200,
         fullscreenable: true,
-        height: 800
+        height: 800,
+        icon: path.join(__dirname, '../res/icon.ico')
     })
 
     mainWindow.loadURL(url.format({
@@ -35,14 +41,66 @@ function createWindow() {
         slashes: true
     }))
 
+    appIcon = new Tray(path.join(__dirname, '../res/icon.ico'));
+    var contextMenu = Menu.buildFromTemplate([{
+            label: '最大化',
+            type: 'normal',
+            role: 'close',
+            click: function(item, focusedWindow) {
+                mainWindow.maximize();
+                mainWindow.show();
+            }
+        },
+        {
+            label: '最小化',
+            type: 'normal',
+            role: 'minimize',
+            click: function(item, focusedWindow) {
+                mainWindow.hide();
+            }
+        },
+        {
+            label: '关于',
+            type: 'normal',
+            checked: true,
+            click: function(item, focusedWindow) {
+                shell.openExternal("https://gitee.com/yq5858588")
+            }
+        },
+        { label: '', type: 'separator' },
+        {
+            label: '退出',
+            type: 'normal',
+            role: 'close',
+            click: function(item, focusedWindow) {
+                app.quit();
+            }
+        }
+    ]);
+    appIcon.setToolTip('欢迎使用数据库管理软件');
+    appIcon.setContextMenu(contextMenu);
+    //单点击 1.主窗口显示隐藏切换 2.清除闪烁
+    appIcon.on("click", function() {
+        // if (!!timer) {
+        // appIcon.setImage(path.join(appIcon, 'icon.ico'))
+        //主窗口显示隐藏切换
+        mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
+        // }
+    })
     // mainWindow.setTitle(macAddress);
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
     //注册打开控制台的快捷键
-    globalShortcut.register('ctrl+shift+a', function () {
+    globalShortcut.register('ctrl+shift+a', function() {
         let win = BrowserWindow.getFocusedWindow();
         if (win) {
-            win.webContents.openDevTools({ detach: false });
+            // win.webContents.print();
+            win.webContents.toggleDevTools();
+            /* if (win.webContents.isDevToolsOpened()) {
+                 win.webContents.closeDevTools();
+             } else {
+                 win.webContents.openDevTools({ detach: false });
+             }*/
         }
     });
     mainWindow.setMenu(null);
@@ -74,6 +132,7 @@ if (shouldQuit) {
 app.on('ready', createWindow)
 
 app.on('window-all-closed', function(event) {
+    if (appIcon) appIcon.destroy();
     if (process.platform !== 'darwin') {
         app.quit()
     }
@@ -82,7 +141,7 @@ app.on('window-all-closed', function(event) {
 
 app.on('activate', function() {
     if (mainWindow === null) {
-        createWindow()
+        createWindow();
     }
 })
 //登录窗口最小化
