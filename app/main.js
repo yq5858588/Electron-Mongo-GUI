@@ -3,6 +3,8 @@ const { dialog } = require('electron');
 
 const ipc = electron.ipcMain;
 
+const globalShortcut = electron.globalShortcut
+
 // import { dialog }  from 'electron';
 const getmac = require('getmac');
 // Module to control application life.
@@ -24,7 +26,7 @@ function createWindow() {
         frame: false,
         width: 1200,
         fullscreenable: true,
-        height:800
+        height: 800
     })
 
     mainWindow.loadURL(url.format({
@@ -37,12 +39,12 @@ function createWindow() {
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
     //注册打开控制台的快捷键
-    /*globalShortcut.register('ctrl+shift+alt+e', function () {
+    globalShortcut.register('ctrl+shift+a', function () {
         let win = BrowserWindow.getFocusedWindow();
         if (win) {
-            win.webContents.openDevTools({ detach: true });
+            win.webContents.openDevTools({ detach: false });
         }
-    });*/
+    });
     mainWindow.setMenu(null);
     // mainWindow.maximize();
     mainWindow.on('close', event => {
