@@ -27,8 +27,8 @@ function createWindow() {
 
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        transparent: true,
-        frame: false,
+        transparent: false,
+        frame: true,
         width: 1200,
         fullscreenable: true,
         height: 800,
@@ -89,7 +89,7 @@ function createWindow() {
     })
     // mainWindow.setTitle(macAddress);
     // Open the DevTools.
-    // mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
     //注册打开控制台的快捷键
     globalShortcut.register('ctrl+shift+a', function() {
         let win = BrowserWindow.getFocusedWindow();

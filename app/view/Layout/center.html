@@ -114,6 +114,7 @@
     }
 
     function getData(tablename) {
+        $('#layout_center_tabs').tabs('select', '首页');
         var sql = 'describe  ' + tablename;
         var tableDataColumn = Array();
         var tableDataRow = Array();

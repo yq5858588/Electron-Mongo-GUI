@@ -20,6 +20,7 @@
                     port = data.port;
                     database = '';
                     conn();
+                    $("#indexMsg").text(''); //开始前，清理信息提示框！
                     $('#getConnDialog').dialog('close');
                 }
             }]
@@ -49,7 +50,8 @@
         dbmysql.query(sql, function(err, rows, fields) {
             $.messager.progress('close');
             if (err) {
-                console.log(err);
+                // console.log(err);
+                $('#west_tree').tree({data: []});
                 $("#indexMsg").text(err);
                 return;
             }
@@ -71,6 +73,7 @@
                     $('#west_tree').tree('collapseAll');
                 },
                 onClick: function(node) {
+                    $("#indexMsg").text(''); //开始前，清理信息提示框！
                     var url;
                     console.info(node);
                     let table = node.text;
@@ -103,7 +106,7 @@
                                 // console.log(row);
                                 var temp = {};
                                 temp['id'] = 'tablename_' + index;
-                                temp['text'] = row['Tables_in_'+table];
+                                temp['text'] = row['Tables_in_' + table];
                                 temp['state'] = 'open';
                                 temp['type'] = "biao";
                                 dataSub.push(temp);
