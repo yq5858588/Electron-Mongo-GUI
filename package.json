@@ -20,7 +20,7 @@
     "build": {
         "appId": "com.yq.mongogui",
         "copyright": "杨庆",
-        "productName": "MongoGUI界面管理器",
+        "productName": "超人数据库管理软件",
         "dmg": {
             "background": "res/background.png",
             "window": {
